@@ -1362,21 +1362,7 @@ let widgetOpen = false, widgetStarted = false;
 let W = { msgs: [], persona: 'companion', busy: false };
 
 function openWidget(trigger) {
-  // Prompt for API key if not set
-  if (!window.__FL_KEY) {
-    const k = localStorage.getItem('fl_key');
-    if (k) {
-      window.__FL_KEY = k;
-    } else {
-      const input = prompt('Enter your Anthropic API key to use the companion (sk-ant-...):');
-      if (!input || !input.startsWith('sk-')) {
-        alert('A valid API key is required (starts with sk-ant-). Get one at console.anthropic.com');
-        return;
-      }
-      window.__FL_KEY = input.trim();
-      localStorage.setItem('fl_key', window.__FL_KEY);
-    }
-  }
+
   widgetOpen = true;
   document.getElementById('flPanel').classList.add('open');
   document.getElementById('flFabIcon').innerHTML = '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
@@ -2278,22 +2264,10 @@ ${getPersonaContext()}${getObservationGuidance()}${getModalityContext()}`;
 
 async function callClaude(messages) {
   const systemPrompt = buildSystemPrompt(W.persona);
-  const key = window.__FL_KEY || '';
-  if (!key) throw new Error('No API key set');
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
+  const res = await fetch('/.netlify/functions/chat', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': key,
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-access': 'true'
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-5-20250929',
-      max_tokens: 1000,
-      system: systemPrompt,
-      messages: messages
-    })
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ system: systemPrompt, messages: messages })
   });
   const data = await res.json();
   if (data.error) throw new Error(data.error.message);
