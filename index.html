@@ -244,11 +244,12 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
   border:1px solid rgba(230,234,236,.6);border-radius:20px;
   box-shadow:0 20px 80px rgba(26,95,122,.18);
   display:flex;flex-direction:column;overflow:hidden;
-  height:min(520px,calc(100vh - 116px));
+  height:min(560px,calc(100vh - 116px));
   opacity:0;transform:translateY(14px) scale(.96);pointer-events:none;
-  transition:opacity .28s var(--ease),transform .28s var(--ease);
+  transition:opacity .28s var(--ease),transform .28s var(--ease),height .28s var(--ease);
 }
 .fl-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all}
+.fl-panel.voice-mode{height:min(660px,calc(100vh - 116px))}
 /* Widget header */
 .fl-head{
   padding:12px 16px;background:#fff;border-bottom:1px solid rgba(230,234,236,.6);
@@ -1127,7 +1128,7 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
     </div>
 
     <!-- VOICE MODE panel -->
-    <div id="flVoicePane" style="display:none;flex-direction:column;flex:1;align-items:center;justify-content:center;padding:20px 16px;background:var(--bg);gap:12px">
+    <div id="flVoicePane" style="display:none;flex-direction:column;flex:1;min-height:0;overflow-y:auto;align-items:center;justify-content:safe center;padding:16px 16px 18px;background:var(--bg);gap:10px">
       <!-- Orb -->
       <div id="flOrb" style="width:84px;height:84px;border-radius:50%;background:#fff;border:2px solid var(--p20);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--sh);transition:border-color .3s,box-shadow .3s;overflow:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="44" height="44" style="opacity:.6"><circle cx="50" cy="50" r="6" fill="var(--p)"/><g stroke="var(--p)" stroke-linecap="round" fill="none"><line x1="50" y1="44" x2="50" y2="16" stroke-width="2"/><line x1="55" y1="46" x2="74" y2="22" stroke-width="2"/><line x1="57" y1="50" x2="85" y2="50" stroke-width="2"/><line x1="55" y1="54" x2="74" y2="78" stroke-width="2"/><line x1="50" y1="56" x2="50" y2="84" stroke-width="2"/><line x1="45" y1="54" x2="26" y2="78" stroke-width="2"/><line x1="43" y1="50" x2="15" y2="50" stroke-width="2"/><line x1="45" y1="46" x2="26" y2="22" stroke-width="2"/></g><g fill="var(--p)"><circle cx="50" cy="14" r="2.5"/><circle cx="76" cy="20" r="2.5"/><circle cx="87" cy="50" r="2.5"/><circle cx="76" cy="80" r="2.5"/><circle cx="50" cy="86" r="2.5"/><circle cx="24" cy="80" r="2.5"/><circle cx="13" cy="50" r="2.5"/><circle cx="24" cy="20" r="2.5"/></g></svg>
@@ -1173,8 +1174,7 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
      SCRIPT
 ═══════════════════════════════════════════════════════ -->
 <script>// ── GLOBALS — defined first so all functions can reference them ──────────────
-// Load stored API key
-window.__FL_KEY = localStorage.getItem('fl_key') || '';
+
 const PAGE_LOAD_TIME = Date.now();
 let PAGES_VISITED = [];
 
@@ -1396,6 +1396,7 @@ function switchMode(mode) {
   const headSub   = document.getElementById('flHeadSub');
   
   if (mode === 'voice') {
+    document.getElementById('flPanel').classList.add('voice-mode');
     textPane.style.display  = 'none';
     voicePane.style.display = 'flex';
     tabText.style.background  = 'transparent';
@@ -1408,6 +1409,7 @@ function switchMode(mode) {
     // Record modality switch
     recordModalitySwitch(prev, 'voice');
   } else {
+    document.getElementById('flPanel').classList.remove('voice-mode');
     textPane.style.display  = 'flex';
     voicePane.style.display = 'none';
     tabText.style.background  = 'rgba(255,255,255,.22)';
