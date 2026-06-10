@@ -227,6 +227,35 @@ h1,h2,h3,h4,h5,h6{font-family:var(--serif);font-weight:600;letter-spacing:-.02em
 .team-name{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--p);margin-bottom:4px;letter-spacing:-.01em}
 .team-role{font-size:13px;color:var(--fg3);line-height:1.55}
 .team-bio{font-size:12px;color:var(--fg4);line-height:1.6;margin-top:10px}
+/* ── FREE ASSESSMENT (funnel page) ───────────────────────── */
+.asmt-wrap{max-width:620px;margin:0 auto}
+.asmt-progress{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.asmt-track{flex:1;height:6px;background:var(--sec);border-radius:99px;overflow:hidden}
+.asmt-fill{height:100%;background:var(--p);border-radius:99px;transition:width .4s var(--ease)}
+.asmt-plabel{font-size:12px;font-weight:600;color:var(--fg3);white-space:nowrap;letter-spacing:.04em}
+.asmt-q{font-family:var(--serif);font-size:23px;line-height:1.35;color:var(--p);margin-bottom:24px;min-height:78px;display:flex;align-items:center}
+.asmt-likert{display:flex;flex-direction:column;gap:10px}
+.asmt-opt{text-align:left;width:100%;padding:14px 18px;border-radius:12px;border:1px solid var(--bdr);background:#fff;font-family:var(--sans);font-size:15px;color:var(--fg2);cursor:pointer;transition:all .18s var(--ease);display:flex;align-items:center;gap:13px}
+.asmt-opt:hover{border-color:var(--p30);background:var(--p8)}
+.asmt-opt.sel{border-color:var(--p);background:var(--p8);color:var(--p);font-weight:500}
+.asmt-dot{width:17px;height:17px;border-radius:50%;border:2px solid var(--p30);flex-shrink:0;transition:all .18s var(--ease)}
+.asmt-opt.sel .asmt-dot{border-color:var(--p);background:var(--p);box-shadow:inset 0 0 0 3px #fff}
+.asmt-chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+.asmt-chip{font-size:12.5px;color:var(--fg2);background:var(--sec);border:1px solid var(--bdr);border-radius:999px;padding:6px 13px}
+.asmt-sectitle{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--p);margin:30px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--bdr)}
+.asmt-bar-block{margin-bottom:18px}
+.asmt-bar-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+.asmt-bar-name{font-weight:600;color:var(--p);font-size:15px}
+.asmt-bar-band{font-size:12.5px;color:var(--fg3);font-weight:500}
+.asmt-bar-track{position:relative;height:12px;background:var(--sec);border-radius:99px;overflow:hidden}
+.asmt-bar-fill{position:absolute;left:0;top:0;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--p),#3f7d96);transition:width .9s var(--ease)}
+.asmt-bar-fill.forg{background:linear-gradient(90deg,#caa24a,#2f8f6b)}
+.asmt-bar-mid{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--p20)}
+.asmt-poles{display:flex;justify-content:space-between;margin-top:6px;font-size:11.5px;color:var(--fg4)}
+.asmt-quote{font-family:var(--serif);font-style:italic;font-size:18px;color:#f4f1ea;line-height:1.5;background:linear-gradient(150deg,#23414f,#1a2f3a);border-radius:16px;padding:24px 26px;margin:18px 0}
+.asmt-primary{background:var(--p8);border:1px solid var(--p20);border-radius:14px;padding:18px 20px;margin:16px 0;font-size:14px;color:var(--fg2);line-height:1.6}
+@media(max-width:600px){ .asmt-q{font-size:20px;min-height:0} }
+
 .personas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .persona-item{padding:14px 16px;border-radius:12px;border:1px solid var(--bdr);background:#fff}
 .persona-name{font-size:12px;font-weight:700;color:var(--p);display:block;margin-bottom:3px}
@@ -499,6 +528,7 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
     <span class="nav-link" id="nl-journey" onclick="showPage('journey')">The Journey</span>
     <span class="nav-link" id="nl-modalities" onclick="showPage('modalities')">Modalities</span>
     <span class="nav-link" id="nl-pricing" onclick="showPage('pricing')">Pricing</span>
+    <span class="nav-link" id="nl-assessment" onclick="showPage('assessment')">Assessment</span>
     <span class="nav-link" id="nl-why-us" onclick="showPage('why-us')">Our Why</span>
     <span class="nav-link" id="nl-stories" onclick="showPage('stories')">Stories</span>
     <span class="nav-link" id="nl-safety" onclick="showPage('safety')">Safety</span>
@@ -520,6 +550,7 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
   <span class="mob-link" onclick="showPage('journey');toggleMob()">The Journey</span>
   <span class="mob-link" onclick="showPage('modalities');toggleMob()">Modalities</span>
   <span class="mob-link" onclick="showPage('pricing');toggleMob()">Pricing</span>
+  <span class="mob-link" onclick="showPage('assessment');toggleMob()">Free Assessment</span>
   <span class="mob-link" onclick="showPage('why-us');toggleMob()">Our Why</span>
   <span class="mob-link" onclick="showPage('stories');toggleMob()">Stories</span>
   <span class="mob-link" onclick="showPage('safety');toggleMob()">Safety</span>
@@ -843,6 +874,16 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
 </div>
 
 
+<!-- FREE ASSESSMENT FUNNEL ════════════════════════════════ -->
+<section style="padding:74px 40px;background:linear-gradient(150deg,var(--sec),var(--acc))">
+  <div style="max-width:680px;margin:0 auto;text-align:center">
+    <span class="badge badge-out" style="margin-bottom:14px;display:inline-flex;background:#fff">Free · about 4 minutes</span>
+    <h2 style="font-size:30px;margin-bottom:14px">Not sure where to start?</h2>
+    <p style="color:var(--fg2);font-size:16px;margin-bottom:26px">Take our free forgiveness profile to discover how you carry what's been hard — and where your healing is most likely to begin. Your companion picks up right where the reflection leaves off.</p>
+    <button class="btn btn-primary btn-lg" onclick="showPage('assessment')">Discover your profile →</button>
+  </div>
+</section>
+
 <!-- MODALITIES (homepage highlight) ════════════════════════ -->
 <section class="modalities-section">
   <div class="section-header">
@@ -978,6 +1019,7 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
       <a onclick="showPage('journey')">The Journey</a>
       <a onclick="showPage('modalities')">Modalities</a>
       <a onclick="showPage('pricing')">Pricing</a>
+      <a onclick="showPage('assessment')">Free Assessment</a>
       <a onclick="showPage('why-us')">Our Why</a>
       <a onclick="showPage('stories')">Stories</a>
       <a onclick="showPage('safety')">Safety & Privacy</a>
@@ -1165,6 +1207,37 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
     <div class="price-meter-note">
       <span class="dot"></span>
       <span><strong style="color:var(--p);font-weight:600">Every premium minute is metered live.</strong> A quiet on-screen meter shows your time and cost as you go. It fades during moments of depth or grief and never intrudes — because no one should be watching a clock in the middle of healing.</span>
+    </div>
+  </div>
+</div>
+
+<!-- FREE ASSESSMENT PAGE (funnel) ═══════════════════════════ -->
+<div class="inner-page" id="page-assessment">
+  <div class="page-hero" style="background:linear-gradient(160deg,hsl(190,36%,88%) 0%,hsl(150,28%,86%) 100%)">
+    <div class="page-hero-ov-light"></div>
+    <div class="page-hero-content">
+      <p class="page-overline">Free Assessment</p>
+      <h1 class="page-h1">Discover your<br><em>forgiveness profile.</em></h1>
+      <p class="page-lead" style="color:var(--fg2)">A free four-minute reflection that reveals how you carry — and release — what's been hard, and shows where your healing is most likely to begin.</p>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="asmt-wrap">
+      <div id="asmtIntro">
+        <p class="page-p">There are no right answers, and nothing here is a test or a diagnosis — just twenty honest moments of noticing. Answer for how things usually are, not how you wish they were.</p>
+        <div class="asmt-chips">
+          <span class="asmt-chip">Agreeableness</span><span class="asmt-chip">Emotional reactivity</span><span class="asmt-chip">Self-worth</span>
+          <span class="asmt-chip">Forgiveness of self</span><span class="asmt-chip">Forgiveness of others</span><span class="asmt-chip">Forgiveness of life's circumstances</span>
+        </div>
+        <button class="btn btn-primary btn-lg" onclick="asmtStart()">Begin the reflection</button>
+      </div>
+      <div id="asmtQuiz" style="display:none">
+        <div class="asmt-progress"><div class="asmt-track"><div class="asmt-fill" id="asmtFill"></div></div><div class="asmt-plabel" id="asmtPlabel">1 / 20</div></div>
+        <div class="asmt-q" id="asmtQ"></div>
+        <div class="asmt-likert" id="asmtLikert"></div>
+        <div style="margin-top:24px"><button class="btn btn-outline" id="asmtBack" onclick="asmtBack()" style="visibility:hidden">← Back</button></div>
+      </div>
+      <div id="asmtResults" style="display:none"></div>
     </div>
   </div>
 </div>
@@ -1555,7 +1628,7 @@ function buildSafety() {
 }
 
 // ── PAGE ROUTER ────────────────────────────────────────────────
-const PAGES = ['how','journey','modalities','pricing','why-us','stories','features','safety','faq'];
+const PAGES = ['how','journey','modalities','pricing','assessment','why-us','stories','features','safety','faq'];
 function showPage(id) {
   recordPageVisit(id); // track for onboarding intelligence
   document.getElementById('mainPage').style.display = 'none';
@@ -1807,7 +1880,7 @@ function changePersona() {
   document.getElementById('flMsgs').innerHTML = '';
   widgetStarted = false;
   // Reset personality assessment — runs fresh each session
-  PROFILE = { signals:{A:0,N:0,SW:0}, messageCount:0, complete:false, confidence:0, persona:null, personaData:null, rawText:'' };
+  PROFILE = { signals:{A:0,N:0,SW:0}, forgiveness:{self:0,others:0,situations:0}, forgivenessHistory:[], triggers:[], messageCount:0, complete:false, confidence:0, persona:null, personaData:null, rawText:'' };
   // Reset modality profile for new session
   const prevHistory = [...MODALITY_PROFILE.history];
   MODALITY_PROFILE = { history:prevHistory, preferred:null, emotional:null, growth:null, avoidance:null, switches:[], current:'text', openedVia:MODALITY_PROFILE.openedVia, timeOnSiteBeforeOpen:MODALITY_PROFILE.timeOnSiteBeforeOpen, pagesVisitedBeforeOpen:MODALITY_PROFILE.pagesVisitedBeforeOpen };
@@ -2188,6 +2261,141 @@ ${lines}
 Use these to anticipate hard moments, pace gently, and build the relapse plan WITH them. NEVER provoke or test a trigger. Surface one to the person only gently and with consent ("Some people find certain dates bring it back — does anything like that land for you?"), and never when crisis signals are present.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
 }
+
+
+// ══════════════════════════════════════════════════════════════
+// FREE ASSESSMENT (public funnel → seeds the companion profile)
+// ══════════════════════════════════════════════════════════════
+const ASMT = {
+  idx: 0,
+  answers: new Array(20).fill(null),
+  lastKey: null, lastMeans: null,
+  likert: [
+    {v:1,l:"Strongly disagree"},{v:2,l:"Disagree"},{v:3,l:"Neutral"},{v:4,l:"Agree"},{v:5,l:"Strongly agree"}
+  ],
+  items: [
+    {d:"A",  r:false, t:"When there's conflict, I'd rather smooth things over than stand my ground."},
+    {d:"N",  r:false, t:"When something painful happens, I replay it in my mind over and over."},
+    {d:"SW", r:false, t:"Deep down, I believe I am a person of worth."},
+    {d:"FO", r:true,  t:"When someone hurts me, I carry the resentment for a long time."},
+    {d:"FS", r:true,  t:"I hold my own mistakes against myself long after they've passed."},
+    {d:"A",  r:false, t:"I often put other people's needs ahead of my own."},
+    {d:"FSit",r:true, t:"When life deals me something unfair, I stay bitter about it for a long time."},
+    {d:"N",  r:false, t:"I worry about things more than most people I know."},
+    {d:"SW", r:true,  t:"When something goes wrong, I tend to blame myself first."},
+    {d:"FO", r:false, t:"I can eventually let go of anger toward people who have wronged me."},
+    {d:"FSit",r:false,t:"I can come to peace with hard circumstances that no one could control."},
+    {d:"FS", r:false, t:"With time, I can accept the wrong things I've done and move forward."},
+    {d:"A",  r:true,  t:"If someone wrongs me, my first instinct is to push back hard and make my case."},
+    {d:"FO", r:true,  t:"There are people I don't think I'll ever be able to forgive."},
+    {d:"N",  r:true,  t:"I stay calm and steady, even when things go wrong."},
+    {d:"SW", r:false, t:"I'm able to be kind to myself when I make a mistake."},
+    {d:"FSit",r:true, t:"I get stuck on the idea that a painful event simply should never have happened."},
+    {d:"FS", r:true,  t:"I am hard on myself when I don't live up to my own standards."},
+    {d:"FO", r:false, t:"Even when I'm still hurt, I can stop wishing harm on the person who hurt me."},
+    {d:"FSit",r:false,t:"Over time, I can accept difficult things I cannot change."}
+  ],
+  meta: {
+    A:{n:"Agreeableness",lo:"Assertive",hi:"Accommodating"},
+    N:{n:"Emotional reactivity",lo:"Steady",hi:"Reactive"},
+    SW:{n:"Self-worth",lo:"Self-critical",hi:"Secure"},
+    FS:{n:"Forgiveness of self",lo:"Still bound",hi:"Largely released"},
+    FO:{n:"Forgiveness of others",lo:"Still bound",hi:"Largely released"},
+    FSit:{n:"Forgiveness of situations",lo:"Still bound",hi:"Largely released"}
+  },
+  meet: {
+    HHH:"We'll validate your empathy first, treat anxiety as a signal rather than a verdict, and give real attention to forgiving yourself — not just others.",
+    HHL:"We'll start by reestablishing that you are worthy — before any forgiveness work — and gently challenge the belief that you caused or deserved what happened.",
+    HLH:"You have real inner resources, so we'll work efficiently and focus on the specific deep hurt that brought you here, without assuming the wound is small.",
+    HLL:"We'll address the self-blame loop early and rebuild self-worth first — because you'll tend to forgive the other person long before forgiving yourself.",
+    LHH:"We'll meet you in the anger and validate it fully — never 'just let it go' — and frame forgiveness clearly as releasing your burden, not excusing them.",
+    LHL:"Safety and trust come before everything. We move very slowly here, building dignity and steadiness first — forgiveness is never pushed.",
+    LLH:"We'll respect your autonomy completely and reframe forgiveness as taking back your power — it changes nothing about what they did or what was owed.",
+    LLL:"We move with patience and never push for disclosure, building consistent safety over time — and gently questioning the belief that distance is what keeps you safe."
+  }
+};
+function asmtStart(){
+  ASMT.idx=0;
+  document.getElementById('asmtIntro').style.display='none';
+  document.getElementById('asmtResults').style.display='none';
+  document.getElementById('asmtQuiz').style.display='block';
+  asmtRender();
+}
+function asmtRender(){
+  const it=ASMT.items[ASMT.idx];
+  document.getElementById('asmtQ').textContent=it.t;
+  document.getElementById('asmtFill').style.width=(ASMT.idx/ASMT.items.length*100)+'%';
+  document.getElementById('asmtPlabel').textContent=(ASMT.idx+1)+' / '+ASMT.items.length;
+  document.getElementById('asmtBack').style.visibility=ASMT.idx===0?'hidden':'visible';
+  const box=document.getElementById('asmtLikert'); box.innerHTML='';
+  ASMT.likert.forEach(o=>{
+    const b=document.createElement('button');
+    b.className='asmt-opt'+(ASMT.answers[ASMT.idx]===o.v?' sel':'');
+    b.innerHTML='<span class="asmt-dot"></span><span>'+o.l+'</span>';
+    b.onclick=()=>asmtChoose(o.v);
+    box.appendChild(b);
+  });
+}
+function asmtChoose(v){
+  ASMT.answers[ASMT.idx]=v; asmtRender();
+  setTimeout(()=>{ if(ASMT.idx<ASMT.items.length-1){ASMT.idx++;asmtRender();} else asmtFinish(); },230);
+}
+function asmtBack(){ if(ASMT.idx>0){ASMT.idx--;asmtRender();} }
+function asmtScore(){
+  const s={},c={};
+  ASMT.items.forEach((it,i)=>{ let v=ASMT.answers[i]; if(v==null)v=3; if(it.r)v=6-v; s[it.d]=(s[it.d]||0)+v; c[it.d]=(c[it.d]||0)+1; });
+  const m={}; Object.keys(s).forEach(d=>m[d]=s[d]/c[d]); return m;
+}
+function asmtBand(m){ if(m<2)return"Very low"; if(m<2.8)return"Low"; if(m<=3.2)return"Moderate"; if(m<=4)return"High"; return"Very high"; }
+function asmtPct(m){ return Math.round((m-1)/4*100); }
+function asmtFinish(){
+  const m=asmtScore();
+  const key=(m.A>=3?'H':'L')+(m.N>=3?'H':'L')+(m.SW>=3?'H':'L');
+  ASMT.lastKey=key; ASMT.lastMeans=m;
+  const persona=FORGIVENESS_PERSONAS[key];
+  const dist=(Math.abs(m.A-3)+Math.abs(m.N-3)+Math.abs(m.SW-3))/3;
+  const clarity=dist>=1.1?"a clearly defined profile":dist>=0.5?"a moderately defined profile":"a borderline profile — some traits sit near the middle";
+  const forg=[['FS',m.FS],['FO',m.FO],['FSit',m.FSit]].sort((a,b)=>a[1]-b[1]);
+  const primaryName={FS:"forgiveness of yourself",FO:"forgiveness of the person who hurt you",FSit:"making peace with circumstances you couldn't control"}[forg[0][0]];
+  const axisBar=(d)=>{const e=ASMT.meta[d];return '<div class="asmt-bar-block"><div class="asmt-bar-top"><span class="asmt-bar-name">'+e.n+'</span><span class="asmt-bar-band">'+asmtBand(m[d])+'</span></div><div class="asmt-bar-track"><div class="asmt-bar-mid"></div><div class="asmt-bar-fill" style="width:'+asmtPct(m[d])+'%"></div></div><div class="asmt-poles"><span>'+e.lo+'</span><span>'+e.hi+'</span></div></div>';};
+  const forgBar=(d)=>{const e=ASMT.meta[d];return '<div class="asmt-bar-block"><div class="asmt-bar-top"><span class="asmt-bar-name">'+e.n+'</span><span class="asmt-bar-band">'+asmtBand(m[d])+'</span></div><div class="asmt-bar-track"><div class="asmt-bar-fill forg" style="width:'+asmtPct(m[d])+'%"></div></div><div class="asmt-poles"><span>'+e.lo+'</span><span>'+e.hi+'</span></div></div>';};
+  const html=
+    '<div style="text-align:center"><p class="page-overline">Your profile</p>'+
+    '<h2 style="font-size:32px;margin:6px 0 6px">'+persona.name+'</h2>'+
+    '<p class="page-overline" style="opacity:.75">'+persona.label+'</p>'+
+    '<div style="display:inline-block;margin-top:14px;font-size:12.5px;color:var(--fg2);background:var(--acc);border-radius:999px;padding:6px 15px">This reflection points to '+clarity+'.</div></div>'+
+    '<div class="asmt-quote">'+persona.coreWound+'</div>'+
+    '<p class="page-p"><strong style="color:var(--p)">How we\u2019d meet you:</strong> '+ASMT.meet[key]+'</p>'+
+    '<div class="asmt-sectitle">Who you are — the three axes</div>'+axisBar('A')+axisBar('N')+axisBar('SW')+
+    '<div class="asmt-sectitle">Where forgiveness sits right now</div>'+forgBar('FS')+forgBar('FO')+forgBar('FSit')+
+    '<div class="asmt-primary">Your lowest dimension is <strong>'+ASMT.meta[forg[0][0]].n.toLowerCase()+'</strong>, usually where the real work begins. For you, that likely means starting with <strong>'+primaryName+'</strong> — at your pace, and never before you\u2019re ready.</div>'+
+    '<div style="text-align:center;margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">'+
+      '<button class="btn btn-primary btn-lg" onclick="asmtBegin()">Begin your journey →</button>'+
+      '<button class="btn btn-outline" onclick="asmtRestart()">Retake the reflection</button></div>'+
+    '<p style="font-size:12px;color:var(--fg4);line-height:1.6;text-align:center;margin-top:26px;max-width:520px;margin-left:auto;margin-right:auto">This reflection is a starting point for personalizing your care — not a clinical diagnosis. Forgiveness here always means releasing your own burden, never reconciliation, and never on anyone\u2019s timeline but your own.</p>';
+  document.getElementById('asmtQuiz').style.display='none';
+  const r=document.getElementById('asmtResults'); r.innerHTML=html; r.style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function asmtRestart(){
+  ASMT.answers=new Array(20).fill(null); ASMT.idx=0;
+  document.getElementById('asmtResults').style.display='none';
+  document.getElementById('asmtQuiz').style.display='none';
+  document.getElementById('asmtIntro').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function asmtSeedProfile(){
+  if(!ASMT.lastMeans||typeof PROFILE==='undefined') return;
+  const m=ASMT.lastMeans;
+  PROFILE.persona=ASMT.lastKey;
+  PROFILE.personaData=FORGIVENESS_PERSONAS[ASMT.lastKey];
+  PROFILE.confidence=Math.max(PROFILE.confidence||0,58);
+  PROFILE.signals.A=(m.A-3)*4; PROFILE.signals.N=(m.N-3)*4; PROFILE.signals.SW=(m.SW-3)*4;
+  PROFILE.forgiveness.self=(m.FS-3)*4; PROFILE.forgiveness.others=(m.FO-3)*4; PROFILE.forgiveness.situations=(m.FSit-3)*4;
+  PROFILE.forgivenessHistory.push({m:0,self:PROFILE.forgiveness.self,others:PROFILE.forgiveness.others,situations:PROFILE.forgiveness.situations});
+}
+function asmtBegin(){ asmtSeedProfile(); if(typeof openWidget==='function') openWidget('assessment-funnel'); }
+
 
 const PERSONA_PROMPTS = {
   companion: "You are The Companion — a warm, steady, non-judgmental healing partner. Your role is default reflection mode. You are calm, present, and deeply empathetic. You draw from the full body of forgiveness research without following any single model exclusively.",
