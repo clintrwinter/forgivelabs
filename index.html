@@ -255,6 +255,47 @@ h1,h2,h3,h4,h5,h6{font-family:var(--serif);font-weight:600;letter-spacing:-.02em
 .asmt-quote{font-family:var(--serif);font-style:italic;font-size:18px;color:#f4f1ea;line-height:1.5;background:linear-gradient(150deg,#23414f,#1a2f3a);border-radius:16px;padding:24px 26px;margin:18px 0}
 .asmt-primary{background:var(--p8);border:1px solid var(--p20);border-radius:14px;padding:18px 20px;margin:16px 0;font-size:14px;color:var(--fg2);line-height:1.6}
 @media(max-width:600px){ .asmt-q{font-size:20px;min-height:0} }
+/* ── ACCOUNTS · SESSIONS · ONBOARDING ─────────────────────── */
+.fl-modal{position:fixed;inset:0;background:rgba(26,47,58,.55);backdrop-filter:blur(4px);z-index:11000;display:none;align-items:center;justify-content:center;padding:20px}
+.fl-modal.open{display:flex}
+.fl-modal-card{background:var(--bg);border-radius:20px;max-width:430px;width:100%;padding:32px 30px;box-shadow:0 30px 80px rgba(26,47,58,.3);position:relative;max-height:92vh;overflow:auto}
+.fl-modal-x{position:absolute;top:15px;right:15px;width:30px;height:30px;border:none;background:var(--sec);border-radius:8px;cursor:pointer;color:var(--fg3);font-size:17px;line-height:1;display:flex;align-items:center;justify-content:center}
+.fl-modal-x:hover{color:var(--p)}
+.fl-field{margin-bottom:13px}
+.fl-field label{display:block;font-size:12.5px;font-weight:600;color:var(--fg2);margin-bottom:5px}
+.fl-field input{width:100%;padding:11px 14px;border:1px solid var(--bdr);border-radius:10px;font-family:var(--sans);font-size:15px;background:#fff;color:var(--fg)}
+.fl-field input:focus{outline:none;border-color:var(--p);box-shadow:0 0 0 3px var(--p8)}
+.fl-err{color:#b3382b;font-size:12.5px;margin:2px 0 8px;min-height:15px}
+.fl-auth-toggle{text-align:center;font-size:13px;color:var(--fg3);margin-top:15px}
+.fl-auth-toggle a{color:var(--p);cursor:pointer;font-weight:600}
+.fl-auth-note{font-size:11px;color:var(--fg4);line-height:1.55;margin-top:15px;border-left:2px solid var(--p20);padding-left:11px}
+.fl-menu{position:absolute;top:58px;left:10px;right:10px;background:#fff;border:1px solid var(--bdr);border-radius:14px;box-shadow:0 16px 50px rgba(26,95,122,.22);z-index:60;display:none;padding:12px}
+.fl-menu-acct{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 11px;background:var(--sec);border-radius:10px;margin-bottom:10px}
+.fl-menu-acct .nm{font-size:13px;font-weight:600;color:var(--p)}
+.fl-menu-row{display:flex;gap:8px;margin-bottom:12px}
+.fl-mini{flex:1;padding:9px;border-radius:9px;border:1px solid var(--bdr);background:#fff;font-size:13px;font-weight:500;color:var(--p);cursor:pointer;font-family:var(--sans)}
+.fl-mini:hover{background:var(--p8)}
+.fl-mini-link{font-size:12px;color:var(--p);cursor:pointer;font-weight:600;background:none;border:none;font-family:var(--sans)}
+.fl-sess-h{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fg4);margin:2px 2px 8px}
+.fl-sess{display:flex;align-items:center;gap:8px;padding:9px 10px;border-radius:9px;cursor:pointer;transition:background .15s}
+.fl-sess:hover{background:var(--p8)}
+.fl-sess-t{font-size:13px;color:var(--fg);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fl-sess-d{font-size:11px;color:var(--fg4)}
+.fl-sess-x{border:none;background:none;color:var(--fg4);font-size:18px;cursor:pointer;flex-shrink:0;padding:0 4px;line-height:1}
+.fl-sess-x:hover{color:#b3382b}
+.fl-hdr-btn{width:28px;height:28px;border-radius:8px;border:none;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-left:4px;flex-shrink:0;transition:background .2s}
+.fl-hdr-btn:hover{background:rgba(255,255,255,.28)}
+.fl-toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--p);color:#fff;padding:10px 22px;border-radius:99px;font-size:13px;z-index:12000;opacity:0;pointer-events:none;transition:all .3s var(--ease);box-shadow:0 8px 30px var(--p30)}
+.fl-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.fl-onb-card{text-align:center}
+.fl-onb-steps{display:flex;flex-direction:column;gap:12px;margin:20px 0 22px;text-align:left}
+.fl-onb-step{display:flex;gap:12px;align-items:flex-start}
+.fl-onb-num{width:27px;height:27px;border-radius:50%;background:var(--p);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--serif)}
+.fl-onb-step p{font-size:13.5px;color:var(--fg2);margin:0;line-height:1.5}
+.fl-onb-actions{display:flex;flex-direction:column;gap:10px}
+.fl-skip{background:none;border:none;color:var(--fg3);font-size:13px;cursor:pointer;margin-top:8px}
+.fl-skip:hover{color:var(--p)}
+
 
 .personas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .persona-item{padding:14px 16px;border-radius:12px;border:1px solid var(--bdr);background:#fff}
@@ -462,8 +503,9 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
   footer{padding:44px 18px 28px}
   .ft-grid{grid-template-columns:1fr;gap:28px}
   .page-hero-content,.page-body{padding:56px 18px 48px}
-  .fl-panel{width:calc(100vw - 32px)}
   .fl-wrap{right:16px;bottom:16px}
+  .fl-panel{width:calc(100vw - 32px)}
+  .fl-panel.open{position:fixed;inset:0;width:100vw;max-width:100vw;height:100vh;height:100dvh;max-height:none;border-radius:0;transform:none;z-index:10000}
 }
 </style>
 </head>
@@ -529,6 +571,7 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
     <span class="nav-link" id="nl-modalities" onclick="showPage('modalities')">Modalities</span>
     <span class="nav-link" id="nl-pricing" onclick="showPage('pricing')">Pricing</span>
     <span class="nav-link" id="nl-assessment" onclick="showPage('assessment')">Assessment</span>
+    <span class="nav-link" onclick="flAuthOpen('signin')">Sign in</span>
     <span class="nav-link" id="nl-why-us" onclick="showPage('why-us')">Our Why</span>
     <span class="nav-link" id="nl-stories" onclick="showPage('stories')">Stories</span>
     <span class="nav-link" id="nl-safety" onclick="showPage('safety')">Safety</span>
@@ -551,6 +594,7 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
   <span class="mob-link" onclick="showPage('modalities');toggleMob()">Modalities</span>
   <span class="mob-link" onclick="showPage('pricing');toggleMob()">Pricing</span>
   <span class="mob-link" onclick="showPage('assessment');toggleMob()">Free Assessment</span>
+  <span class="mob-link" onclick="flAuthOpen('signin');toggleMob()">Sign in</span>
   <span class="mob-link" onclick="showPage('why-us');toggleMob()">Our Why</span>
   <span class="mob-link" onclick="showPage('stories');toggleMob()">Stories</span>
   <span class="mob-link" onclick="showPage('safety');toggleMob()">Safety</span>
@@ -1379,6 +1423,42 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
 <!-- ═══════════════════════════════════════════════════════
      FLOATING CHAT WIDGET
 ═══════════════════════════════════════════════════════ -->
+<!-- AUTH MODAL (front-end shell — wire to real auth before launch) ═══ -->
+<div class="fl-modal" id="flAuth">
+  <div class="fl-modal-card">
+    <button class="fl-modal-x" onclick="flAuthClose()" aria-label="Close">&times;</button>
+    <h2 id="flAuthTitle" style="font-size:23px;margin-bottom:6px">Welcome back</h2>
+    <p style="font-size:13.5px;color:var(--fg3);margin-bottom:20px">Save your sessions and pick up right where you left off.</p>
+    <div class="fl-field" id="flAuthNameWrap" style="display:none"><label>Your name</label><input id="flAuthName" type="text" placeholder="First name" autocomplete="given-name"></div>
+    <div class="fl-field"><label>Email</label><input id="flAuthEmail" type="email" placeholder="you@example.com" autocomplete="email"></div>
+    <div class="fl-field"><label>Password</label><input id="flAuthPass" type="password" placeholder="••••••••" autocomplete="current-password"></div>
+    <div class="fl-err" id="flAuthErr"></div>
+    <button class="btn btn-primary" id="flAuthSubmit" style="width:100%;justify-content:center" onclick="flAuthSubmit()">Sign in</button>
+    <div class="fl-auth-toggle" id="flAuthToggle">New here? <a onclick="flSwitchAuthTab('signup')">Create an account</a></div>
+    <div class="fl-auth-note">Preview sign-in only. Before launch this connects to a secure authentication provider — passwords and conversations are never stored in your browser in the live product.</div>
+  </div>
+</div>
+
+<!-- ONBOARDING MODAL ════════════════════════════════════════ -->
+<div class="fl-modal" id="flOnb">
+  <div class="fl-modal-card fl-onb-card">
+    <button class="fl-modal-x" onclick="flOnbClose()" aria-label="Close">&times;</button>
+    <span class="badge badge-out" style="margin:0 auto 12px;display:inline-flex">Welcome to Forgive Labs</span>
+    <h2 style="font-size:24px;margin-bottom:8px">You don't have to carry this alone.</h2>
+    <p style="font-size:14px;color:var(--fg2);margin-bottom:4px">Here's how to begin — at your pace, with no pressure.</p>
+    <div class="fl-onb-steps">
+      <div class="fl-onb-step"><div class="fl-onb-num">1</div><p><strong>Discover your profile.</strong> A free four-minute reflection helps your companion understand how you carry what's been hard.</p></div>
+      <div class="fl-onb-step"><div class="fl-onb-num">2</div><p><strong>Meet your companion.</strong> A private space to talk it through, whenever you're ready.</p></div>
+      <div class="fl-onb-step"><div class="fl-onb-num">3</div><p><strong>Save your progress.</strong> Create an account to keep your sessions and return to them anytime.</p></div>
+    </div>
+    <div class="fl-onb-actions">
+      <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="flOnbGo('assessment')">Start with the free assessment</button>
+      <button class="btn btn-outline" style="width:100%;justify-content:center" onclick="flOnbGo('companion')">Talk to the companion</button>
+    </div>
+    <button class="fl-skip" onclick="flOnbClose()">I'll explore on my own</button>
+  </div>
+</div>
+
 <div class="fl-wrap" id="flWrap">
   <div class="fl-panel" id="flPanel">
 
@@ -1411,9 +1491,24 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
         <button id="flTabVoice" onclick="switchMode('voice')" title="Voice mode"
           style="width:28px;height:28px;border-radius:7px;border:1px solid transparent;background:transparent;color:rgba(255,255,255,.55);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:13px">🎤</button>
       </div>
+      <button class="fl-hdr-btn" onclick="flMenuToggle()" title="Sessions & account" aria-label="Sessions and account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
       <button style="width:28px;height:28px;border-radius:8px;border:none;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-left:4px;transition:background .2s;flex-shrink:0" onclick="closeWidget()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
+    </div>
+
+    <!-- Sessions & account menu -->
+    <div class="fl-menu" id="flMenu">
+      <div class="fl-menu-acct">
+        <div><div class="nm" id="flAcctLabel">Guest</div><div style="font-size:11px;color:var(--fg4)">Sessions save on this device</div></div>
+        <div><button class="fl-mini-link" id="flSignInBtn" onclick="flAuthOpen('signin')">Sign in</button><button class="fl-mini-link" id="flSignOutBtn" style="display:none" onclick="flSignOut()">Sign out</button></div>
+      </div>
+      <div class="fl-menu-row">
+        <button class="fl-mini" onclick="flSaveSession()">Save session</button>
+        <button class="fl-mini" onclick="flNewSession()">New session</button>
+      </div>
+      <div class="fl-sess-h">Saved sessions</div>
+      <div id="flSessList"></div>
     </div>
 
     <!-- Safety note -->
@@ -1888,7 +1983,7 @@ function changePersona() {
 }
 
 // Auto-open after 30 seconds
-setTimeout(() => { if (!widgetOpen) openWidget('auto'); }, 30000);
+setTimeout(() => { if (!widgetOpen && window.innerWidth > 600) openWidget('auto'); }, 30000);
 
 // ── CLAUDE API (direct, matching the app's LLM integration) ────
 
@@ -2396,6 +2491,91 @@ function asmtSeedProfile(){
 }
 function asmtBegin(){ asmtSeedProfile(); if(typeof openWidget==='function') openWidget('assessment-funnel'); }
 
+
+
+// ══════════════════════════════════════════════════════════════
+// ACCOUNTS · SESSIONS · ONBOARDING  (front-end prototype)
+// NOTE: localStorage-based. Real accounts + secure storage of sensitive
+// conversations require a backend auth provider + encrypted database.
+// ══════════════════════════════════════════════════════════════
+const FLA = { user:null, sessions:[], currentId:null, authMode:'signin' };
+function flGet(k,d){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } }
+function flSet(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); return true; }catch(e){ return false; } }
+function flAccountInit(){ FLA.user=flGet('fl_user',null); FLA.sessions=flGet('fl_sessions',[]); flAccountSync(); }
+function flAccountSync(){
+  const lbl=document.getElementById('flAcctLabel'); if(lbl) lbl.textContent=FLA.user?(FLA.user.name||FLA.user.email):'Guest';
+  const so=document.getElementById('flSignOutBtn'); const si=document.getElementById('flSignInBtn');
+  if(so) so.style.display=FLA.user?'inline':'none';
+  if(si) si.style.display=FLA.user?'none':'inline';
+}
+function flAuthOpen(mode){ document.getElementById('flAuth').classList.add('open'); flSwitchAuthTab(mode||'signin'); }
+function flAuthClose(){ document.getElementById('flAuth').classList.remove('open'); const e=document.getElementById('flAuthErr'); if(e) e.textContent=''; }
+function flSwitchAuthTab(mode){
+  FLA.authMode=mode;
+  document.getElementById('flAuthTitle').textContent = mode==='signup'?'Create your account':'Welcome back';
+  document.getElementById('flAuthNameWrap').style.display = mode==='signup'?'block':'none';
+  document.getElementById('flAuthSubmit').textContent = mode==='signup'?'Create account':'Sign in';
+  document.getElementById('flAuthToggle').innerHTML = mode==='signup'
+    ? 'Already have an account? <a onclick="flSwitchAuthTab(\'signin\')">Sign in</a>'
+    : 'New here? <a onclick="flSwitchAuthTab(\'signup\')">Create an account</a>';
+}
+function flAuthSubmit(){
+  const email=(document.getElementById('flAuthEmail').value||'').trim();
+  const name=(document.getElementById('flAuthName').value||'').trim();
+  const err=document.getElementById('flAuthErr');
+  if(!email || email.indexOf('@')<0){ err.textContent='Please enter a valid email.'; return; }
+  // ── FRONT-END PROTOTYPE ONLY — replace with a real auth provider call ──
+  FLA.user={ email, name:name||email.split('@')[0], createdAt:Date.now() };
+  flSet('fl_user', FLA.user); flAccountSync(); flAuthClose();
+  flToast('Signed in (preview)');
+  if(typeof widgetOpen!=='undefined' && !widgetOpen) openWidget('account');
+}
+function flSignOut(){ FLA.user=null; flSet('fl_user',null); flAccountSync(); flToast('Signed out'); }
+
+// ── Sessions ──
+function flMenuToggle(){ const m=document.getElementById('flMenu'); const open=m.style.display==='block'; m.style.display=open?'none':'block'; if(!open) flRenderSessions(); }
+function flSaveSession(){
+  if(!W.msgs || !W.msgs.length){ flToast('Nothing to save yet'); return; }
+  const fu=(W.msgs.find(m=>m.role==='user')||{}).content || 'Session';
+  const snap={ id:FLA.currentId||('s'+Date.now()), title:fu.slice(0,42), persona:W.persona,
+    msgs:W.msgs.slice(), profile:{persona:PROFILE.persona,confidence:PROFILE.confidence,forgiveness:PROFILE.forgiveness}, updatedAt:Date.now() };
+  const i=FLA.sessions.findIndex(s=>s.id===snap.id);
+  if(i>=0) FLA.sessions[i]=snap; else FLA.sessions.unshift(snap);
+  FLA.currentId=snap.id; flSet('fl_sessions',FLA.sessions); flRenderSessions(); flToast('Session saved');
+}
+function flNewSession(){
+  FLA.currentId=null; W.msgs=[]; document.getElementById('flMsgs').innerHTML=''; widgetStarted=true;
+  PROFILE={ signals:{A:0,N:0,SW:0}, forgiveness:{self:0,others:0,situations:0}, forgivenessHistory:[], triggers:[], messageCount:0, complete:false, confidence:0, persona:null, personaData:null, rawText:'' };
+  document.getElementById('flMenu').style.display='none'; loadGreeting();
+}
+function flRestoreSession(id){
+  const s=FLA.sessions.find(x=>x.id===id); if(!s) return;
+  FLA.currentId=s.id; W.persona=s.persona||W.persona; W.msgs=(s.msgs||[]).slice();
+  const sel=document.getElementById('flPersonaSel'); if(sel) sel.value=W.persona;
+  const c=document.getElementById('flMsgs'); c.innerHTML=''; W.msgs.forEach(m=>appendMsg(m));
+  if(s.profile){ PROFILE.persona=s.profile.persona||null; PROFILE.confidence=s.profile.confidence||0;
+    if(s.profile.forgiveness) PROFILE.forgiveness=s.profile.forgiveness;
+    if(PROFILE.persona) PROFILE.personaData=FORGIVENESS_PERSONAS[PROFILE.persona]; }
+  widgetStarted=true; document.getElementById('flMenu').style.display='none';
+  if(typeof widgetOpen!=='undefined' && !widgetOpen) openWidget('restore');
+}
+function flDeleteSession(id,ev){ if(ev) ev.stopPropagation(); FLA.sessions=FLA.sessions.filter(s=>s.id!==id); flSet('fl_sessions',FLA.sessions); flRenderSessions(); }
+function flRenderSessions(){
+  const box=document.getElementById('flSessList'); if(!box) return;
+  if(!FLA.sessions.length){ box.innerHTML='<p style="font-size:12.5px;color:var(--fg3);padding:8px 2px;margin:0">No saved sessions yet. Tap “Save session” to return to a conversation later.</p>'; return; }
+  box.innerHTML=FLA.sessions.map(s=>{ const d=new Date(s.updatedAt); const ds=(d.getMonth()+1)+'/'+d.getDate();
+    return '<div class="fl-sess" onclick="flRestoreSession(\''+s.id+'\')"><div style="flex:1;min-width:0"><div class="fl-sess-t">'+esc(s.title)+'</div><div class="fl-sess-d">'+ds+'</div></div><button class="fl-sess-x" onclick="flDeleteSession(\''+s.id+'\',event)" aria-label="Delete">&times;</button></div>';
+  }).join('');
+}
+function flToast(m){ let t=document.getElementById('flToast'); if(!t){ t=document.createElement('div'); t.id='flToast'; t.className='fl-toast'; document.body.appendChild(t);} t.textContent=m; t.className='fl-toast show'; clearTimeout(window._flT); window._flT=setTimeout(()=>{t.className='fl-toast';},1800); }
+
+// ── Onboarding (first visit) ──
+function flOnbInit(){ if(!flGet('fl_onb',false)) setTimeout(flOnbShow,700); }
+function flOnbShow(){ const o=document.getElementById('flOnb'); if(o) o.classList.add('open'); }
+function flOnbClose(){ const o=document.getElementById('flOnb'); if(o) o.classList.remove('open'); flSet('fl_onb',true); }
+function flOnbGo(where){ flOnbClose(); if(where==='assessment'){ if(typeof showPage==='function') showPage('assessment'); } else { if(typeof openWidget==='function') openWidget('onboarding'); } }
+// init after module is defined
+try { flAccountInit(); flOnbInit(); } catch(e) {}
 
 const PERSONA_PROMPTS = {
   companion: "You are The Companion — a warm, steady, non-judgmental healing partner. Your role is default reflection mode. You are calm, present, and deeply empathetic. You draw from the full body of forgiveness research without following any single model exclusively.",
