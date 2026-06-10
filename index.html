@@ -352,11 +352,11 @@ footer{background:#1a2630;color:#94a3b0;padding:56px 40px 32px}
 .ft-crisis{font-size:11px;color:rgba(148,163,176,.6)}
 
 /* ── FLOATING WIDGET ────────────────────────────────────── */
-.fl-wrap{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:10px;max-height:calc(100vh - 48px)}
+.fl-wrap{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:10px;max-height:calc(100vh - 48px);pointer-events:none}
 .fl-btn{
   width:56px;height:56px;border-radius:50%;background:var(--p);border:2px solid rgba(255,255,255,.2);
   cursor:pointer;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 20px var(--p30);transition:all .3s var(--ease);position:relative;
+  box-shadow:0 4px 20px var(--p30);transition:all .3s var(--ease);position:relative;pointer-events:auto;
 }
 .fl-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px var(--p30)}
 .fl-btn svg{width:22px;height:22px;color:#fff;transition:all .3s}
